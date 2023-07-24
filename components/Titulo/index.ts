@@ -1,0 +1,1 @@
+export { Titulo } from "./Titulo";
