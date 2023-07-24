@@ -1,6 +1,4 @@
-import React from "react";
-
-export const SideMenuItem = () => {
+export const MenuLateralItem = () => {
   return (
     <li className="w-full">
       <a
