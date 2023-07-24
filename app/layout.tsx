@@ -1,6 +1,8 @@
+import { Header } from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { SideMenu } from "@/components/SideMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`h-full ${inter.className}`}>{children}</body>
+      <body className={`h-full ${inter.className}`}>
+        <Header />
+        <div className="flex h-full">
+          <SideMenu />
+          <div className="flex-1 px-8 mt-8">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
