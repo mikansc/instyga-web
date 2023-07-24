@@ -1,11 +1,16 @@
-export const MenuLateralItem = () => {
+interface MenuLateralItemProps {
+  title: string;
+  to: string;
+}
+
+export const MenuLateralItem = ({ title, to }: MenuLateralItemProps) => {
   return (
     <li className="w-full">
       <a
-        href="#"
+        href={to}
         className=" hover:bg-gray-400 hover:text-white w-full block text-center py-4"
       >
-        Home
+        {title}
       </a>
     </li>
   );
