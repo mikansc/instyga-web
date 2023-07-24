@@ -1,13 +1,21 @@
-import { Botao } from "../Botao";
+/* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 
-export const Trilha = () => {
+interface TrilhaProps {
+  titulo: string;
+  descricao: string;
+  imagem: string;
+  link: string;
+}
+
+export const Trilha = ({ titulo, descricao, imagem, link }: TrilhaProps) => {
   return (
     <div className="bg-white shadow-md rounded overflow-hidden relative">
       <div className="w-full h-48 bg-cover bg-center">
         <img
           className="block w-full h-48 object-cover"
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-          alt=""
+          src={imagem}
+          alt={titulo}
         />
         <div
           className="
@@ -35,9 +43,9 @@ export const Trilha = () => {
                 leading-tight
               "
           >
-            Image Overlay
+            {titulo}
           </h3>
-          <p className="text-sm">Lorem ipsum dolor sit amet.</p>
+          <p className="text-sm">{descricao}</p>
           <div
             className="  
               flex
@@ -46,7 +54,12 @@ export const Trilha = () => {
               mt-4
               "
           >
-            <Botao />
+            <Link
+              href={link}
+              className="mt-4 px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-800 transition-colors duration-300 ease-in-out"
+            >
+              Ver detalhes
+            </Link>
           </div>
         </div>
       </div>

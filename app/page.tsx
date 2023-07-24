@@ -1,11 +1,11 @@
-import { Trilhas } from "@/components/Trilhas";
+import { Titulo } from "@/components/Titulo/Titulo";
 
 /* eslint-disable @next/next/no-img-element */
-export default function Home() {
+export default function Home({ children }: { children: React.ReactNode }) {
   return (
     <main className="h-full">
-      <h2 className="text-4xl font-bold text-gray-900 mb-6">Trilhas</h2>
-      <Trilhas />
+      <Titulo>Bem vindo!</Titulo>
+      <p>Navegue pelo menu lateral para acessar as trilhas.</p>
     </main>
   );
 }

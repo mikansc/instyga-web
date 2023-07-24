@@ -18,11 +18,29 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`h-full bg-gray-200 ${inter.className}`}>
-        <Header />
-        <div className="flex h-full ">
-          <MenuLateral />
-          <div className="flex-1 px-8 pt-8 bg-white">{children}</div>
+      <body className={`h-full ${inter.className}`}>
+        <div className="fixed w-full z-10">
+          <Header
+            links={[
+              { title: "Home", to: "/" },
+              { title: "Trilhas", to: "/trilhas" },
+            ]}
+          />
+        </div>
+        <div className="flex h-full">
+          <div className="w-64 mt-16 bg-gray-100 fixed inset-y-0">
+            <MenuLateral
+              menuItems={[
+                { title: "Home", to: "/" },
+                { title: "Trilhas", to: "/trilhas" },
+                { title: "Nova Trilha", to: "/trilhas/novo" },
+                { title: "Nova Avaliação", to: "/avaliacoes/novo" },
+              ]}
+            />
+          </div>
+          <div className="flex-1 ml-64 mt-16 px-8 pt-8 bg-white">
+            {children}
+          </div>
         </div>
       </body>
     </html>

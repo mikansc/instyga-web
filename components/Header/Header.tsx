@@ -1,4 +1,6 @@
-export function Header() {
+import { HeaderLink, type HeaderLinkItem } from "./HeaderLink";
+
+export function Header({ links }: { links: HeaderLinkItem[] }) {
   return (
     <header className="w-full h-16 bg-gray-800 text-white">
       <div
@@ -9,12 +11,11 @@ export function Header() {
         <h1>Instyga</h1>
         <nav className="flex justify-between items-center">
           <ul className="flex">
-            <li className="mr-4">
-              <a href="#">Home</a>
-            </li>
-            <li className="mr-4">
-              <a href="#">About</a>
-            </li>
+            {links.map((link) => {
+              return (
+                <HeaderLink key={link.to} to={link.to} title={link.title} />
+              );
+            })}
           </ul>
         </nav>
       </div>

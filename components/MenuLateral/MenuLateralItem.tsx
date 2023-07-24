@@ -1,4 +1,6 @@
-interface MenuLateralItemProps {
+import Link from "next/link";
+
+export interface MenuLateralItemProps {
   title: string;
   to: string;
 }
@@ -6,12 +8,12 @@ interface MenuLateralItemProps {
 export const MenuLateralItem = ({ title, to }: MenuLateralItemProps) => {
   return (
     <li className="w-full">
-      <a
+      <Link
         href={to}
-        className=" hover:bg-gray-400 hover:text-white w-full block text-center py-4"
+        className=" hover:bg-gray-400 hover:text-white w-full block py-4 pl-8"
       >
         {title}
-      </a>
+      </Link>
     </li>
   );
 };
