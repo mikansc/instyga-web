@@ -1,5 +1,5 @@
 const NovaTrilhaPage = (props) => {
-  return <div>NovaTrilhaPage</div>;
+  return <main>NovaTrilhaPage</main>;
 };
 
 export default NovaTrilhaPage;

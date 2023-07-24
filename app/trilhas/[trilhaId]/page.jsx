@@ -1,3 +1,3 @@
 export default function TrilhaDetalhesPage() {
-  return <div>TrilhaDetalhesPage</div>;
+  return <main>TrilhaDetalhesPage</main>;
 }

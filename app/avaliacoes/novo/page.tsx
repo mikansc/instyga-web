@@ -1,5 +1,5 @@
 const NovaAvaliacaoPage = (props) => {
-  return <div>NovaAvaliacaoPage</div>;
+  return <main>NovaAvaliacaoPage</main>;
 };
 
 export default NovaAvaliacaoPage;
