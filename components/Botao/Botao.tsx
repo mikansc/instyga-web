@@ -1,4 +1,8 @@
-export const Botao = () => {
+export const Botao = ({
+  children = "empty!",
+}: {
+  children: React.ReactNode;
+}) => {
   return (
     <button
       className="
@@ -14,7 +18,7 @@ export const Botao = () => {
     ease-in-out
     "
     >
-      Acessars
+      {children}
     </button>
   );
 };

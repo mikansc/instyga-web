@@ -1,0 +1,1 @@
+export { Avaliaacoes } from "./Avaliacoes";

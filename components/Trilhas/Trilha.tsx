@@ -2,21 +2,21 @@
 import Link from "next/link";
 
 interface TrilhaProps {
-  titulo: string;
-  descricao: string;
-  imagem: string;
-  link: string;
+  data: {
+    id: number;
+    title: string;
+    description: string;
+    img: string;
+  };
 }
 
-export const Trilha = ({ titulo, descricao, imagem, link }: TrilhaProps) => {
+export const CardTrilha = ({
+  data: { id, title, description, img },
+}: TrilhaProps) => {
   return (
     <div className="bg-white shadow-md rounded overflow-hidden relative">
       <div className="w-full h-48 bg-cover bg-center">
-        <img
-          className="block w-full h-48 object-cover"
-          src={imagem}
-          alt={titulo}
-        />
+        <img className="block w-full h-48 object-cover" src={img} alt={title} />
         <div
           className="
               h-full
@@ -43,9 +43,9 @@ export const Trilha = ({ titulo, descricao, imagem, link }: TrilhaProps) => {
                 leading-tight
               "
           >
-            {titulo}
+            {title}
           </h3>
-          <p className="text-sm">{descricao}</p>
+          <p className="text-sm">{description}</p>
           <div
             className="  
               flex
@@ -55,7 +55,7 @@ export const Trilha = ({ titulo, descricao, imagem, link }: TrilhaProps) => {
               "
           >
             <Link
-              href={link}
+              href={`/trilhas/${id}`}
               className="mt-4 px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-800 transition-colors duration-300 ease-in-out"
             >
               Ver detalhes
