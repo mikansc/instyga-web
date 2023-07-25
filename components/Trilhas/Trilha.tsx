@@ -4,19 +4,15 @@ import Link from "next/link";
 interface TrilhaProps {
   data: {
     id: number;
-    title: string;
-    description: string;
-    img: string;
+    nome: string;
+    descricao: string;
   };
 }
 
-export const CardTrilha = ({
-  data: { id, title, description, img },
-}: TrilhaProps) => {
+export const CardTrilha = ({ data: { id, descricao, nome } }: TrilhaProps) => {
   return (
     <div className="bg-white shadow-md rounded overflow-hidden relative">
       <div className="w-full h-48 bg-cover bg-center">
-        <img className="block w-full h-48 object-cover" src={img} alt={title} />
         <div
           className="
               h-full
@@ -26,10 +22,8 @@ export const CardTrilha = ({
               right-0
               px-6
               py-4
-              bg-gradient-to-b
-              from-gray-900
-              to-transparent
-              text-white
+              border
+              border-gray-200
             "
         >
           <h3
@@ -40,9 +34,9 @@ export const CardTrilha = ({
                 leading-tight
               "
           >
-            {title}
+            {nome}
           </h3>
-          <p className="text-sm">{description}</p>
+          <p className="text-sm">{descricao}</p>
           <div
             className="  
               flex
