@@ -5,7 +5,7 @@ import { CardTrilha } from "@/components/Trilhas/Trilha";
 export default function TrilhasPage() {
   return (
     <main>
-      <Titulo>Trilhas</Titulo>
+      <Titulo as="h1">Trilhas</Titulo>
       <Trilhas>
         <CardTrilha
           key={1}

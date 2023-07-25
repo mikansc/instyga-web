@@ -30,9 +30,6 @@ export const CardTrilha = ({
               from-gray-900
               to-transparent
               text-white
-              opacity-0
-              hover:opacity-100
-              transition-opacity
             "
         >
           <h3

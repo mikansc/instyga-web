@@ -4,7 +4,7 @@ export const Titulo = ({
   color = "gray",
 }: {
   children: React.ReactNode;
-  as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   color?: "gray" | "white";
 }) => {
   const AsComponent = as;
