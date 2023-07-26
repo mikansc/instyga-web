@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { BotaoLink } from "../BotaoLink";
 
 interface TrilhaProps {
   data: {
@@ -45,12 +46,7 @@ export const CardTrilha = ({ data: { id, descricao, nome } }: TrilhaProps) => {
               mt-4
               "
           >
-            <Link
-              href={`/trilhas/${id}`}
-              className="mt-4 px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-800 transition-colors duration-300 ease-in-out"
-            >
-              Ver detalhes
-            </Link>
+            <BotaoLink href={`/trilhas/${id}`}>Ver detalhes</BotaoLink>
           </div>
         </div>
       </div>

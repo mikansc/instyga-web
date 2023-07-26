@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { AvaliacaoCard } from "@/components/Avaliacoes/AvaliacaoCard";
 import { Avaliacoes } from "@/components/Avaliacoes/Avaliacoes";
 import { Titulo } from "@/components/Titulo";
 
@@ -9,7 +8,7 @@ export default function TrilhaDetalhesPage() {
       <div className="relative">
         <img
           className="w-full h-48 object-cover
-          bg-blend-overlay bg-blend-multiply
+          bg-blend-overlay
           filter brightness-50
           rounded-t-lg
           mb-4
@@ -38,11 +37,10 @@ export default function TrilhaDetalhesPage() {
         </div>
       </div>
       <p className="text-gray-700 mb-6">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-        voluptatibus, quibusdam, quia, quos voluptatem voluptatum quod
-        consequatur voluptates quas doloribus quidem. Quisquam voluptatibus,
-        quibusdam, quia, quos voluptatem voluptatum quod consequatur voluptates
-        quas doloribus quidem.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptatibus, quibusdam,
+        quia, quos voluptatem voluptatum quod consequatur voluptates quas doloribus quidem. Quisquam
+        voluptatibus, quibusdam, quia, quos voluptatem voluptatum quod consequatur voluptates quas
+        doloribus quidem.
       </p>
       <Titulo as={"h3"}>Avaliações disponíveis</Titulo>
       <Avaliacoes />

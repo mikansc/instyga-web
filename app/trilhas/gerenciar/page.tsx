@@ -1,10 +1,11 @@
 import { Titulo } from "@/components/Titulo";
-import Link from "next/link";
 
 import * as trilhaService from "@/services/trilhas";
+import { BotaoLink } from "@/components/BotaoLink";
 
 const GerenciarTrilhaPage = async () => {
   const trilhas = await trilhaService.buscarTodas();
+  // const trilhas = [];
 
   return (
     <main>
@@ -15,10 +16,10 @@ const GerenciarTrilhaPage = async () => {
         "
         >
           <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Ações</th>
+            <th className="py-2">Id</th>
+            <th className="py-2">Nome</th>
+            <th className="py-2">Descrição</th>
+            <th className="py-2">Ações</th>
           </tr>
         </thead>
         <tbody
@@ -27,20 +28,29 @@ const GerenciarTrilhaPage = async () => {
           text-gray-700
           "
         >
-          {trilhas.map((trilha) => (
-            <tr key={trilha.id}>
-              <td className="px-4">{trilha.id}</td>
-              <td className="w-1/3 truncate">{trilha.nome}</td>
-              <td className="max-w-xs truncate">{trilha.descricao}</td>
-              <td className="w-1/6">
-                <Link href="/trilhas/gerenciar/1/editar">Editar</Link>
+          {trilhas.length === 0 && (
+            <tr>
+              <td colSpan={4} className="text-center py-2">
+                Nenhuma trilha encontrada
               </td>
             </tr>
-          ))}
+          )}
+          {trilhas.length > 0 &&
+            trilhas.map((trilha) => (
+              <tr key={trilha.id}>
+                <td className="py-2 px-4">{trilha.id}</td>
+                <td className="py-2 w-1/3 truncate">{trilha.nome}</td>
+                <td className="py-2 max-w-xs truncate">{trilha.descricao}</td>
+                <td className="py-2 w-1/6">
+                  <BotaoLink href="/trilhas/gerenciar/1/editar">Editar</BotaoLink>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
-
-      <Link href="/trilhas">Voltar</Link>
+      <div className="mt-8">
+        <BotaoLink href="/trilhas">Voltar</BotaoLink>
+      </div>
     </main>
   );
 };
