@@ -1,7 +1,7 @@
 import { Titulo } from "@/components/Titulo";
 
-import * as trilhaService from "@/services/trilhas";
 import { BotaoLink } from "@/components/BotaoLink";
+import * as trilhaService from "@/services/trilhas";
 
 const GerenciarTrilhaPage = async () => {
   const trilhas = await trilhaService.buscarTodas();
@@ -48,7 +48,10 @@ const GerenciarTrilhaPage = async () => {
             ))}
         </tbody>
       </table>
-      <div className="mt-8">
+      <div className="mt-4 flex gap-3">
+        <BotaoLink color="blue" href="gerenciar/novo">
+          Nova trilha
+        </BotaoLink>
         <BotaoLink href="/trilhas">Voltar</BotaoLink>
       </div>
     </main>
