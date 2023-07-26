@@ -1,11 +1,12 @@
 import { Titulo } from "@/components/Titulo";
 
+import { Botao } from "@/components/Botao";
 import { BotaoLink } from "@/components/BotaoLink";
 import * as trilhaService from "@/services/trilhas";
+import { revalidateTag } from "next/cache";
 
 const GerenciarTrilhaPage = async () => {
   const trilhas = await trilhaService.buscarTodas();
-  // const trilhas = [];
 
   return (
     <main>
@@ -42,7 +43,22 @@ const GerenciarTrilhaPage = async () => {
                 <td className="py-2 w-1/3 truncate">{trilha.nome}</td>
                 <td className="py-2 max-w-xs truncate">{trilha.descricao}</td>
                 <td className="py-2 w-1/6">
-                  <BotaoLink href="/trilhas/gerenciar/1/editar">Editar</BotaoLink>
+                  <form>
+                    <BotaoLink href="/trilhas/gerenciar/1/editar">Editar</BotaoLink>
+                    <Botao
+                      type="submit"
+                      formAction={async () => {
+                        "use server";
+                        console.log(trilha.id);
+                        await trilhaService.apagarTrilha(trilha.id!).then((res) => {
+                          console.log(res);
+                          revalidateTag("todas_trilhas");
+                        });
+                      }}
+                    >
+                      Apagar
+                    </Botao>
+                  </form>
                 </td>
               </tr>
             ))}
