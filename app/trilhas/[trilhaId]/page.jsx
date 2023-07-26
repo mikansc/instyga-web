@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
+import { AvaliacaoCard } from "@/components/Avaliacoes/AvaliacaoCard";
 import { Avaliacoes } from "@/components/Avaliacoes/Avaliacoes";
 import { Titulo } from "@/components/Titulo";
+import * as avaliacaoService from "@/services/avaliacoes";
+import * as trilhaService from "@/services/trilhas";
 
-export default function TrilhaDetalhesPage() {
+export default async function TrilhaDetalhesPage({ params }) {
+  const trilha = await trilhaService.buscarPorId(params.trilhaId);
+  const avls = await await avaliacaoService.buscarTodas();
+  const avaliacoes = avls.filter((avaliacao) => avaliacao.nomeTrilha === trilha.nome);
+
   return (
     <main>
       <div className="relative">
@@ -22,7 +29,7 @@ export default function TrilhaDetalhesPage() {
         bg-gradient-to-t from-black via-transparent to-transparent
         "
         >
-          <Titulo>Trilha React</Titulo>
+          <Titulo>{trilha.nome}</Titulo>
           <div
             className="bg-white text-gray-700 rounded-full
           px-4 py-2 flex items-center space-x-2"
@@ -36,14 +43,15 @@ export default function TrilhaDetalhesPage() {
           </div>
         </div>
       </div>
-      <p className="text-gray-700 mb-6">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptatibus, quibusdam,
-        quia, quos voluptatem voluptatum quod consequatur voluptates quas doloribus quidem. Quisquam
-        voluptatibus, quibusdam, quia, quos voluptatem voluptatum quod consequatur voluptates quas
-        doloribus quidem.
-      </p>
+      <p className="text-gray-700 mb-6">{trilha.descricao}</p>
       <Titulo as={"h3"}>Avaliações disponíveis</Titulo>
-      <Avaliacoes />
+      <Avaliacoes>
+        {avaliacoes.length === 0 && (
+          <p className="text-gray-700 mb-6">Nenhuma avaliação disponível para esta trilha.</p>
+        )}
+        {avaliacoes.length > 0 &&
+          avaliacoes.map((avaliacao) => <AvaliacaoCard key={avaliacao.id} data={avaliacao} />)}
+      </Avaliacoes>
     </main>
   );
 }
