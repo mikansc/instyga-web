@@ -44,20 +44,22 @@ const GerenciarTrilhaPage = async () => {
                 <td className="py-2 max-w-xs truncate">{trilha.descricao}</td>
                 <td className="py-2 w-1/6">
                   <form>
-                    <BotaoLink href="/trilhas/gerenciar/1/editar">Editar</BotaoLink>
-                    <Botao
-                      type="submit"
-                      formAction={async () => {
-                        "use server";
-                        console.log(trilha.id);
-                        await trilhaService.apagarTrilha(trilha.id!).then((res) => {
-                          console.log(res);
-                          revalidateTag("todas_trilhas");
-                        });
-                      }}
-                    >
-                      Apagar
-                    </Botao>
+                    <div className="flex justify-around">
+                      <BotaoLink href="/trilhas/gerenciar/1/editar">Editar</BotaoLink>
+                      <Botao
+                        type="submit"
+                        formAction={async () => {
+                          "use server";
+                          console.log(trilha.id);
+                          await trilhaService.apagarTrilha(trilha.id!).then((res) => {
+                            console.log(res);
+                            revalidateTag("todas_trilhas");
+                          });
+                        }}
+                      >
+                        Apagar
+                      </Botao>
+                    </div>
                   </form>
                 </td>
               </tr>
