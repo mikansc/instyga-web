@@ -1,7 +1,6 @@
 import { Titulo } from "@/components/Titulo/Titulo";
 
-/* eslint-disable @next/next/no-img-element */
-export default function Home({ children }: { children: React.ReactNode }) {
+export default function Home() {
   return (
     <main className="h-full">
       <Titulo>Bem vindo!</Titulo>

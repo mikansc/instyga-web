@@ -1,4 +1,4 @@
-const EditarTrilhaPage = (props) => {
+const EditarTrilhaPage = () => {
   return <main>Editando trilha</main>;
 };
 

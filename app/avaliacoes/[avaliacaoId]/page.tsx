@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const GerenciarAvaliacaoPage = (props) => {
+const GerenciarAvaliacaoPage = () => {
   return (
     <main>
       <p>NovaAvaliacaoPage</p>

@@ -1,1 +1,1 @@
-export { Avaliaacoes } from "./Avaliacoes";
+export { Avaliacoes } from "./Avaliacoes";

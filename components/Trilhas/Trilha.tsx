@@ -1,13 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
+import { Trilha } from "@/services/trilhas";
 import { BotaoLink } from "../BotaoLink";
 
 interface TrilhaProps {
-  data: {
-    id: number;
-    nome: string;
-    descricao: string;
-  };
+  data: Trilha;
 }
 
 export const CardTrilha = ({ data: { id, descricao, nome } }: TrilhaProps) => {
