@@ -26,10 +26,9 @@ export const buscarPorId = async (id: number): Promise<Trilha | null> => {
   }
 };
 
-export const criarTrilha = async (trilha: FormData): Promise<Trilha | null> => {
+export const criar = async (trilha: FormData): Promise<Trilha | null> => {
   try {
     const object = Object.fromEntries(trilha.entries());
-    console.log(object);
 
     const response = await fetch(base_url, {
       method: "POST",
@@ -44,7 +43,7 @@ export const criarTrilha = async (trilha: FormData): Promise<Trilha | null> => {
   }
 };
 
-export const apagarTrilha = async (id: number): Promise<boolean> => {
+export const apagar = async (id: number): Promise<boolean> => {
   try {
     const response = await fetch(`${base_url}/${id}`, { method: "DELETE" });
     return response.status === 204;

@@ -51,7 +51,7 @@ const GerenciarTrilhaPage = async () => {
                         formAction={async () => {
                           "use server";
                           console.log(trilha.id);
-                          await trilhaService.apagarTrilha(trilha.id!).then((res) => {
+                          await trilhaService.apagar(trilha.id!).then((res) => {
                             console.log(res);
                             revalidateTag("todas_trilhas");
                           });

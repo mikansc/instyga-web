@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 const NovaTrilhaPage = () => {
   const adicionaTrilha = async (data: FormData) => {
     "use server";
-    await trilhaService.criarTrilha(data);
+    await trilhaService.criar(data);
     revalidateTag("todas_trilhas");
     redirect("/trilhas/gerenciar");
   };
