@@ -19,26 +19,48 @@ export const buscarTodas = async (): Promise<Trilha[]> => {
 
 export const buscarPorId = async (id: number): Promise<Trilha | null> => {
   try {
-    const response = await fetch(`${base_url}/${id}`);
+    const response = await fetch(`${base_url}/${id}`, { cache: "no-store" });
     return response.json();
   } catch {
     return null;
   }
 };
 
-export const criar = async (trilha: FormData): Promise<Trilha | null> => {
+export const criar = async (trilha: Trilha): Promise<Trilha | null> => {
   try {
-    const object = Object.fromEntries(trilha.entries());
-
     const response = await fetch(base_url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(object),
+      body: JSON.stringify(trilha),
     });
     return response.json();
   } catch {
+    return null;
+  }
+};
+
+export const atualizar = async (trilha: Trilha): Promise<Trilha | null> => {
+  console.log(trilha);
+
+  try {
+    const response = await fetch(`${base_url}/${trilha.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(trilha),
+    });
+    if (!response.ok) {
+      return Promise.reject(await response.json());
+    }
+
+    return response.json();
+  } catch (error) {
+    console.log("erro");
+    console.log(error);
+
     return null;
   }
 };

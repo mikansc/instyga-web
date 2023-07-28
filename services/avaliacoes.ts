@@ -18,6 +18,15 @@ export const buscarTodas = async (): Promise<Avaliacao[]> => {
   }
 };
 
+export const buscarPorId = async (id: number): Promise<Avaliacao | null> => {
+  try {
+    const avaliacao = await fetch(`${base_url}/${id}`);
+    return avaliacao.json();
+  } catch (error) {
+    return null;
+  }
+};
+
 export const apagar = async (id: number): Promise<boolean> => {
   try {
     const response = await fetch(`${base_url}/${id}`, {
@@ -33,6 +42,21 @@ export const criar = async (avaliacao: Avaliacao): Promise<Avaliacao | null> => 
   try {
     const response = await fetch(base_url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(avaliacao),
+    });
+    return response.json();
+  } catch {
+    return null;
+  }
+};
+
+export const atualizar = async (avaliacao: Avaliacao): Promise<Avaliacao | null> => {
+  try {
+    const response = await fetch(`${base_url}/${avaliacao.id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },

@@ -46,7 +46,7 @@ const GerenciarAvaliacoesPage = async () => {
                 <td className="py-2 w-1/6">
                   <form>
                     <div className="flex justify-around">
-                      <BotaoLink href="/avaliacoes/gerenciar/1/editar">Editar</BotaoLink>
+                      <BotaoLink href={`/avaliacoes/gerenciar/${aval.id}/editar`}>Editar</BotaoLink>
                       <Botao
                         type="submit"
                         formAction={async () => {

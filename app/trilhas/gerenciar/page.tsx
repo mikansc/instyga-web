@@ -45,7 +45,7 @@ const GerenciarTrilhaPage = async () => {
                 <td className="py-2 w-1/6">
                   <form>
                     <div className="flex justify-around">
-                      <BotaoLink href="/trilhas/gerenciar/1/editar">Editar</BotaoLink>
+                      <BotaoLink href={`/trilhas/gerenciar/${trilha.id}/editar`}>Editar</BotaoLink>
                       <Botao
                         type="submit"
                         formAction={async () => {
